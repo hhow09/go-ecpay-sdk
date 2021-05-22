@@ -16,7 +16,7 @@ import (
 // AioCheckOutCreditInstallmentOption struct for AioCheckOutCreditInstallmentOption
 type AioCheckOutCreditInstallmentOption struct {
 	// **刷卡分期期數**    提供刷卡分期期數   信用卡分期可用參數為:3,6,12,18,24   注意事項：   使用的期數必須先透過申請開通後方能使用，並以申請開通的期數為主。
-	CreditInstallment string `json:"CreditInstallment"`
+	CreditInstallment string `json:"CreditInstallment" form:"CreditInstallment"`
 }
 
 // NewAioCheckOutCreditInstallmentOption instantiates a new AioCheckOutCreditInstallmentOption object

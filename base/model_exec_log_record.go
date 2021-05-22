@@ -16,17 +16,17 @@ import (
 // ExecLogRecord **每次授權明細**   每一次的授權紀錄。   例如，若已成功授權 3 次(TotalSuccessTimes 為 3)，則會顯示 3 筆授權紀錄。   欄位內容詳見下列定期定額授權明細之參數說明。
 type ExecLogRecord struct {
 	// **交易狀態**   回傳值為 1 時代表授權成功，其餘為失敗，失敗代碼請參考交易訊息代碼一覽
-	RtnCode int `json:"RtnCode"`
+	RtnCode int `json:"RtnCode" form:"RtnCode"`
 	// **本次授權金額**  所授權的金額
-	Amount int `json:"amount"`
+	Amount int `json:"amount" form:"amount"`
 	// **授權交易單號**  所授權的交易單號
-	Gwsr int `json:"gwsr"`
+	Gwsr int `json:"gwsr" form:"gwsr"`
 	// **處理時間** 格式為 yyyy/MM/dd HH:mm:ss
-	ProcessDate ECPayDateTime `json:"process_date"`
+	ProcessDate ECPayDateTime `json:"process_date" form:"process_date"`
 	// **授權碼** 授權碼
-	AuthCode string `json:"auth_code"`
+	AuthCode string `json:"auth_code" form:"auth_code"`
 	// **綠界的交易編號** 請保存綠界的交易編號與特店交易編號 `MerchantTradeNo` 的關連。
-	TradeNo string `json:"TradeNo"`
+	TradeNo string `json:"TradeNo" form:"TradeNo"`
 }
 
 // NewExecLogRecord instantiates a new ExecLogRecord object

@@ -16,38 +16,38 @@ import (
 // CreditCardPeriodInfo struct for CreditCardPeriodInfo
 type CreditCardPeriodInfo struct {
 	// **特店編號(由綠界提供)**
-	MerchantID string `json:"MerchantID"`
+	MerchantID string `json:"MerchantID" form:"MerchantID"`
 	// **特店交易編號(由特店提供)** 訂單產生時傳送給綠界的特店交易編號。
-	MerchantTradeNo string `json:"MerchantTradeNo"`
+	MerchantTradeNo string `json:"MerchantTradeNo" form:"MerchantTradeNo"`
 	// **綠界的交易編號** 首次授權所產生的綠界交易編號
-	TradeNo string `json:"TradeNo"`
+	TradeNo string `json:"TradeNo" form:"TradeNo"`
 	// **交易狀態**    回傳值為 1 時代表授權成功，其餘為失敗，失敗代碼請參考交易訊息代碼一覽表
-	RtnCode    int                  `json:"RtnCode"`
-	PeriodType CreditPeriodTypeEnum `json:"PeriodType"`
+	RtnCode    int                  `json:"RtnCode" form:"RtnCode"`
+	PeriodType CreditPeriodTypeEnum `json:"PeriodType" form:"PeriodType"`
 	// **執行頻率**  訂單建立時所設定的執行頻率
-	Frequency int `json:"Frequency"`
+	Frequency int `json:"Frequency" form:"Frequency"`
 	// **執行次數**  訂單建立時所設定的執行頻率
-	ExecTimes int `json:"ExecTimes"`
+	ExecTimes int `json:"ExecTimes" form:"ExecTimes"`
 	// **每次授權金額**  訂單建立時的每次要授權金額
-	PeriodAmount int `json:"PeriodAmount"`
+	PeriodAmount int `json:"PeriodAmount" form:"PeriodAmount"`
 	// **授權金額** 所授權的金額
-	Amount int `json:"amount"`
+	Amount int `json:"amount" form:"amount"`
 	// **授權交易單號** 所授權的交易單號
-	Gwsr int `json:"gwsr"`
+	Gwsr int `json:"gwsr" form:"gwsr"`
 	// **授權成功處理時間** 格式為 yyyy/MM/dd HH:mm:ss
-	ProcessDate ECPayDateTime `json:"process_date"`
+	ProcessDate ECPayDateTime `json:"process_date" form:"process_date"`
 	// **授權碼** 授權碼
-	AuthCode string `json:"auth_code"`
+	AuthCode string `json:"auth_code" form:"auth_code"`
 	// **卡片的末 4 碼** 卡片的末四碼
-	Card4no string `json:"card4no"`
+	Card4no string `json:"card4no" form:"card4no"`
 	// **卡片的前 6 碼** 卡片的前六碼
-	Card6no string `json:"card6no"`
+	Card6no string `json:"card6no" form:"card6no"`
 	// **已成功授權次數合計** 目前已成功授權的次數
-	TotalSuccessTimes int `json:"TotalSuccessTimes"`
+	TotalSuccessTimes int `json:"TotalSuccessTimes" form:"TotalSuccessTimes"`
 	// **已成功授權總金額** 目前已成功授權的金額合計
-	TotalSuccessAmount int             `json:"TotalSuccessAmount"`
-	ExecStatus         ExecStatusEnum  `json:"ExecStatus"`
-	ExecLog            []ExecLogRecord `json:"ExecLog"`
+	TotalSuccessAmount int             `json:"TotalSuccessAmount" form:"TotalSuccessAmount"`
+	ExecStatus         ExecStatusEnum  `json:"ExecStatus" form:"ExecStatus"`
+	ExecLog            []ExecLogRecord `json:"ExecLog" form:"ExecLog"`
 }
 
 // NewCreditCardPeriodInfo instantiates a new CreditCardPeriodInfo object

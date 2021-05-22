@@ -4,6 +4,7 @@ package {{packageName}}
 import (
 	"encoding/json"
 	"time"
+    "strconv"
 )
 
 // PtrBool is a helper routine that returns a pointer to given integer value.
@@ -344,6 +345,10 @@ func (t *ECPayDateTime) UnmarshalJSON(data []byte) error {
 	}
 	*t = ECPayDateTime(parseTime)
 	return nil
+}
+
+func (t *ECPayDateTime) UnmarshalParam(param string) error {
+    return t.UnmarshalJSON([]byte(strconv.Quote(param)))
 }
 
 func (t ECPayDateTime) String() string {

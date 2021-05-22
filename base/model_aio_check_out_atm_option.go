@@ -16,11 +16,11 @@ import (
 // AioCheckOutAtmOption struct for AioCheckOutAtmOption
 type AioCheckOutAtmOption struct {
 	// **允許繳費有效天數**   若需設定最長 60 天，最短 1 天。   未設定此參數則預設為 3 天   注意事項：以天為單位
-	ExpireDate *int `json:"ExpireDate,omitempty"`
+	ExpireDate *int `json:"ExpireDate,omitempty" form:"ExpireDate"`
 	// **Server端回傳付款相關資訊**   若有設定此參數，訂單建立完成後(非付款完成)，綠界會 Server 端背景回傳消費者付款方式相關資訊(例：銀行代碼、繳費虛擬帳號繳費期限…等)。   請參考[ATM、CVS 或 BARCODE 的取號結果通知.]   注意事項：   頁面將會停留在綠界，顯示繳費的相關資訊。
-	PaymentInfoURL *string `json:"PaymentInfoURL,omitempty"`
+	PaymentInfoURL *string `json:"PaymentInfoURL,omitempty" form:"PaymentInfoURL"`
 	// **Client端回傳付款相關資訊**   若有設定此參數，訂單建立完成後(非付款完成)，綠界會 Client 端回傳消費者付款方式相關資訊(例：銀行代碼、繳費虛擬帳號繳費期限…等)且將頁面轉到特店指定的頁面。請參考[ATM、CVS 或 BARCODE 的取號結果通知.]   注意事項：   若設定此參數，將會使設定的返回特店的按鈕連結[ClientBackURL]失效。   若導回網址未使用 https 時，部份瀏覽器可能會出現警告訊息。
-	ClientRedirectURL *string `json:"ClientRedirectURL,omitempty"`
+	ClientRedirectURL *string `json:"ClientRedirectURL,omitempty" form:"ClientRedirectURL"`
 }
 
 // NewAioCheckOutAtmOption instantiates a new AioCheckOutAtmOption object

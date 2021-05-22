@@ -16,15 +16,15 @@ import (
 // QueryTradeInfoRequest struct for QueryTradeInfoRequest
 type QueryTradeInfoRequest struct {
 	// **特店編號(由綠界提供)**
-	MerchantID string `json:"MerchantID"`
+	MerchantID string `json:"MerchantID" form:"MerchantID"`
 	// **特店交易編號(由特店提供)** 訂單產生時傳送給綠界的特店交易編號。
-	MerchantTradeNo string `json:"MerchantTradeNo"`
+	MerchantTradeNo string `json:"MerchantTradeNo" form:"MerchantTradeNo"`
 	// **驗證時間**   將當下的時間轉為UnixTimeStamp(見範例)用於驗證此次介接的時間區間。   綠界驗證時間區間暫訂為 3 分鐘內有效，超過則此次介接無效。
-	TimeStamp int `json:"TimeStamp"`
+	TimeStamp int `json:"TimeStamp" form:"TimeStamp"`
 	// **特約合作平台商代號(由綠界提供)**   為專案合作的平台商使用。   一般特店或平台商本身介接，則參數請帶放空值。   若為專案合作平台商的特店使用時，則參數請帶平台商所綁的特店編號 `MerchantID`。
-	PlatformID *string `json:"PlatformID,omitempty"`
+	PlatformID *string `json:"PlatformID,omitempty" form:"PlatformID"`
 	// **檢查碼** 特店必須檢查檢查碼`CheckMacValue`來驗證，請參考附錄檢查碼機制。
-	CheckMacValue string `json:"CheckMacValue"`
+	CheckMacValue string `json:"CheckMacValue" form:"CheckMacValue"`
 }
 
 // NewQueryTradeInfoRequest instantiates a new QueryTradeInfoRequest object

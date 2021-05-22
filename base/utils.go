@@ -11,6 +11,7 @@ package ecpayBase
 
 import (
 	"encoding/json"
+	"strconv"
 	"time"
 )
 
@@ -346,6 +347,10 @@ func (t *ECPayDateTime) UnmarshalJSON(data []byte) error {
 	}
 	*t = ECPayDateTime(parseTime)
 	return nil
+}
+
+func (t *ECPayDateTime) UnmarshalParam(param string) error {
+	return t.UnmarshalJSON([]byte(strconv.Quote(param)))
 }
 
 func (t ECPayDateTime) String() string {

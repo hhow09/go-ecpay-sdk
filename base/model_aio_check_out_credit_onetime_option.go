@@ -15,8 +15,8 @@ import (
 
 // AioCheckOutCreditOnetimeOption struct for AioCheckOutCreditOnetimeOption
 type AioCheckOutCreditOnetimeOption struct {
-	Redeem   *RedeemEnum   `json:"Redeem,omitempty"`
-	UnionPay *UnionPayEnum `json:"UnionPay,omitempty"`
+	Redeem   *RedeemEnum   `json:"Redeem,omitempty" form:"Redeem"`
+	UnionPay *UnionPayEnum `json:"UnionPay,omitempty" form:"UnionPay"`
 }
 
 // NewAioCheckOutCreditOnetimeOption instantiates a new AioCheckOutCreditOnetimeOption object

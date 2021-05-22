@@ -16,19 +16,19 @@ import (
 // AioCheckOutCvsBarcodeOption struct for AioCheckOutCvsBarcodeOption
 type AioCheckOutCvsBarcodeOption struct {
 	// **超商繳費截止時間**   注意事項：   `CVS`:以分鐘為單位   `BARCODE`:以天為單位   若未設定此參數，`CVS` 預設為 `10080` 分鐘(`7` 天)；BARCODE 預設為 `7` 天。   若需設定此參數，請於建立訂單時將此參數送給綠界。提醒您，CVS 帶入數值不可超過 `86400` 分鐘，超過時一律以 `86400` 分鐘計(`60` 天)   例：`08/01` 的 `20:15` 分購買商品，繳費期限為 `7` 天，表示 `8/08` 的 `20:15` 分前您必須前往超商繳費。   範例: `CVS`=`1440`(共 `1` 天)、`BARCODE`=`7`(共 `7` 天)
-	StoreExpireDate *int `json:"StoreExpireDate,omitempty"`
+	StoreExpireDate *int `json:"StoreExpireDate,omitempty" form:"StoreExpireDate"`
 	// **交易描述1** 會出現在超商繳費平台螢幕上
-	Desc1 *string `json:"Desc_1,omitempty"`
+	Desc1 *string `json:"Desc_1,omitempty" form:"Desc_1"`
 	// **交易描述2** 會出現在超商繳費平台螢幕上
-	Desc2 *string `json:"Desc_2,omitempty"`
+	Desc2 *string `json:"Desc_2,omitempty" form:"Desc_2"`
 	// **交易描述3** 會出現在超商繳費平台螢幕上
-	Desc3 *string `json:"Desc_3,omitempty"`
+	Desc3 *string `json:"Desc_3,omitempty" form:"Desc_3"`
 	// **交易描述4** 會出現在超商繳費平台螢幕上
-	Desc4 *string `json:"Desc_4,omitempty"`
+	Desc4 *string `json:"Desc_4,omitempty" form:"Desc_4"`
 	// **Server 端回傳付款相關資訊**   若有設定此參數，訂單建立完成後(非付款完成)，綠界會 Server 端背景回傳消費者付款方式相關資訊(例：繳費代碼與繳費超商)。   請參考[`ATM`、`CVS` 或 `BARCODE` 的取號結果通知.]   注意事項：   頁面將會停留在綠界，顯示繳費的相關資訊。   回傳只有三段號碼，並不會回傳條碼圖，需自行轉換成 code39 的三段條碼。
-	PaymentInfoURL *string `json:"PaymentInfoURL,omitempty"`
+	PaymentInfoURL *string `json:"PaymentInfoURL,omitempty" form:"PaymentInfoURL"`
 	// **Client端回傳付款方式相關資訊**   若有設定此參數，訂單建立完成後(非付款完成)，綠界會從 Client 端回傳消費者付款方式相關資訊(例：繳費代碼與繳費超商)且將頁面轉到特店指定的頁面。   請參考[`ATM`、`CVS` 或 `BARCODE` 的取號結果通知.]   注意事項：   若設定此參數，將會使設定的返回特店的按鈕連結[ClientBackURL]失效。   若導回網址未使用 https 時，部份瀏覽器可能會出現警告訊息。   回傳只有三段號碼，並不會回傳條碼圖，需自行轉換成 code39 的三段條碼。
-	ClientRedirectURL *string `json:"ClientRedirectURL,omitempty"`
+	ClientRedirectURL *string `json:"ClientRedirectURL,omitempty" form:"ClientRedirectURL"`
 }
 
 // NewAioCheckOutCvsBarcodeOption instantiates a new AioCheckOutCvsBarcodeOption object

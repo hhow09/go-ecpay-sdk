@@ -16,13 +16,13 @@ import (
 // QueryCreditCardPeriodInfoRequest struct for QueryCreditCardPeriodInfoRequest
 type QueryCreditCardPeriodInfoRequest struct {
 	// **特店編號(由綠界提供)**
-	MerchantID string `json:"MerchantID"`
+	MerchantID string `json:"MerchantID" form:"MerchantID"`
 	// **特店交易編號(由特店提供)** 訂單產生時傳送給綠界的特店交易編號。
-	MerchantTradeNo string `json:"MerchantTradeNo"`
+	MerchantTradeNo string `json:"MerchantTradeNo" form:"MerchantTradeNo"`
 	// **驗證時間**   將當下的時間轉為UnixTimeStamp(見範例)用於驗證此次介接的時間區間。   綠界驗證時間區間暫訂為 3 分鐘內有效，超過則此次介接無效。
-	TimeStamp int `json:"TimeStamp"`
+	TimeStamp int `json:"TimeStamp" form:"TimeStamp"`
 	// **檢查碼** 請參考附錄檢查碼機制與產生檢查碼範例程式
-	CheckMacValue string `json:"CheckMacValue"`
+	CheckMacValue string `json:"CheckMacValue" form:"CheckMacValue"`
 }
 
 // NewQueryCreditCardPeriodInfoRequest instantiates a new QueryCreditCardPeriodInfoRequest object

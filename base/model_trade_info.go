@@ -16,38 +16,38 @@ import (
 // TradeInfo struct for TradeInfo
 type TradeInfo struct {
 	// **特店編號(由綠界提供)**
-	MerchantID string `json:"MerchantID"`
+	MerchantID string `json:"MerchantID" form:"MerchantID"`
 	// **特店交易編號(由特店提供)** 訂單產生時傳送給綠界的特店交易編號。
-	MerchantTradeNo string `json:"MerchantTradeNo"`
+	MerchantTradeNo string `json:"MerchantTradeNo" form:"MerchantTradeNo"`
 	// **特店旗下店舖代號** 提供特店填入分店代號使用，僅可用英數字大小寫混合。
-	StoreID string `json:"StoreID"`
+	StoreID string `json:"StoreID" form:"StoreID"`
 	// **綠界的交易編號** 首次授權所產生的綠界交易編號
-	TradeNo string `json:"TradeNo"`
+	TradeNo string `json:"TradeNo" form:"TradeNo"`
 	// **交易金額**
-	TradeAmt int `json:"TradeAmt"`
+	TradeAmt int `json:"TradeAmt" form:"TradeAmt"`
 	// **付款時間** 格式為 yyyy/MM/dd HH:mm:ss
-	PaymentDate ECPayDateTime         `json:"PaymentDate"`
-	PaymentType ReturnPaymentTypeEnum `json:"PaymentType"`
+	PaymentDate ECPayDateTime         `json:"PaymentDate" form:"PaymentDate"`
+	PaymentType ReturnPaymentTypeEnum `json:"PaymentType" form:"PaymentType"`
 	// **手續費合計**  履約結束後才會計算，未計算前為 0
-	HandlingCharge int `json:"HandlingCharge"`
+	HandlingCharge int `json:"HandlingCharge" form:"HandlingCharge"`
 	// **通路費**
-	PaymentTypeChargeFee float32 `json:"PaymentTypeChargeFee"`
+	PaymentTypeChargeFee float32 `json:"PaymentTypeChargeFee" form:"PaymentTypeChargeFee"`
 	// **訂單成立時間** 格式為 yyyy/MM/dd HH:mm:ss
-	TradeDate ECPayDateTime `json:"TradeDate"`
+	TradeDate ECPayDateTime `json:"TradeDate" form:"TradeDate"`
 	// **交易狀態**    回傳值：   若為 0 時，代表交易訂單成立未付款   若為 1 時，代表交易訂單成立已付款   若為 10200095 時，代表消費者未選擇付款方式，故交易失敗。
-	TradeStatus string `json:"TradeStatus"`
+	TradeStatus string `json:"TradeStatus" form:"TradeStatus"`
 	// **商品名稱**
-	ItemName string `json:"ItemName"`
+	ItemName string `json:"ItemName" form:"ItemName"`
 	// **自訂名稱欄位1**   提供合作廠商使用記錄用客製化使用欄位
-	CustomField1 string `json:"CustomField1"`
+	CustomField1 string `json:"CustomField1" form:"CustomField1"`
 	// **自訂名稱欄位2**   提供合作廠商使用記錄用客製化使用欄位
-	CustomField2 string `json:"CustomField2"`
+	CustomField2 string `json:"CustomField2" form:"CustomField2"`
 	// **自訂名稱欄位3**   提供合作廠商使用記錄用客製化使用欄位
-	CustomField3 string `json:"CustomField3"`
+	CustomField3 string `json:"CustomField3" form:"CustomField3"`
 	// **自訂名稱欄位4**   提供合作廠商使用記錄用客製化使用欄位
-	CustomField4 string `json:"CustomField4"`
+	CustomField4 string `json:"CustomField4" form:"CustomField4"`
 	// **檢查碼** 特店必須檢查檢查碼`CheckMacValue`來驗證，請參考附錄檢查碼機制。
-	CheckMacValue string `json:"CheckMacValue"`
+	CheckMacValue string `json:"CheckMacValue" form:"CheckMacValue"`
 }
 
 // NewTradeInfo instantiates a new TradeInfo object

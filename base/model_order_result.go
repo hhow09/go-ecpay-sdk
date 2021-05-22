@@ -16,37 +16,37 @@ import (
 // OrderResult struct for OrderResult
 type OrderResult struct {
 	// **特店編號**
-	MerchantID string `json:"MerchantID"`
+	MerchantID string `json:"MerchantID" form:"MerchantID"`
 	// **特店交易編號** 訂單產生時傳送給綠界的特店交易編號。英數字大小寫混合
-	MerchantTradeNo string `json:"MerchantTradeNo"`
+	MerchantTradeNo string `json:"MerchantTradeNo" form:"MerchantTradeNo"`
 	// **特店旗下店舖代號** 提供特店填入分店代號使用，僅可用英數字大小寫混合。
-	StoreID string `json:"StoreID"`
+	StoreID string `json:"StoreID" form:"StoreID"`
 	// **交易狀態**   若回傳值為 1 時，為付款成功   其餘代碼皆為交易異常，請至廠商管理後台確認後再出貨。
-	RtnCode int `json:"RtnCode"`
+	RtnCode int `json:"RtnCode" form:"RtnCode"`
 	// **交易訊息** Server POST 成功回傳:交易成功   Server POST 補送通知回傳:paid   Client POST 成功回傳:Succeeded
-	RtnMsg string `json:"RtnMsg"`
+	RtnMsg string `json:"RtnMsg" form:"RtnMsg"`
 	// **綠界的交易編號** 請保存綠界的交易編號與特店交易編號[MerchantTradeNo]的關連。
-	TradeNo string `json:"TradeNo"`
+	TradeNo string `json:"TradeNo" form:"TradeNo"`
 	// **交易金額**
-	TradeAmt int `json:"TradeAmt"`
+	TradeAmt int `json:"TradeAmt" form:"TradeAmt"`
 	// **付款時間** 格式為 yyyy/MM/dd HH:mm:ss
-	PaymentDate ECPayDateTime         `json:"PaymentDate"`
-	PaymentType ReturnPaymentTypeEnum `json:"PaymentType"`
+	PaymentDate ECPayDateTime         `json:"PaymentDate" form:"PaymentDate"`
+	PaymentType ReturnPaymentTypeEnum `json:"PaymentType" form:"PaymentType"`
 	// **通路費**
-	PaymentTypeChargeFee int `json:"PaymentTypeChargeFee"`
+	PaymentTypeChargeFee int `json:"PaymentTypeChargeFee" form:"PaymentTypeChargeFee"`
 	// **訂單成立時間** 格式為 yyyy/MM/dd HH:mm:ss
-	TradeDate ECPayDateTime `json:"TradeDate"`
+	TradeDate ECPayDateTime `json:"TradeDate" form:"TradeDate"`
 	// **檢查碼** 特店必須檢查檢查碼`CheckMacValue`來驗證，請參考附錄檢查碼機制。
-	CheckMacValue string           `json:"CheckMacValue"`
-	SimulatePaid  SimulatePaidEnum `json:"SimulatePaid"`
+	CheckMacValue string           `json:"CheckMacValue" form:"CheckMacValue"`
+	SimulatePaid  SimulatePaidEnum `json:"SimulatePaid" form:"SimulatePaid"`
 	// **自訂名稱欄位1**   提供合作廠商使用記錄用客製化使用欄位
-	CustomField1 string `json:"CustomField1"`
+	CustomField1 string `json:"CustomField1" form:"CustomField1"`
 	// **自訂名稱欄位2**   提供合作廠商使用記錄用客製化使用欄位
-	CustomField2 string `json:"CustomField2"`
+	CustomField2 string `json:"CustomField2" form:"CustomField2"`
 	// **自訂名稱欄位3**   提供合作廠商使用記錄用客製化使用欄位
-	CustomField3 string `json:"CustomField3"`
+	CustomField3 string `json:"CustomField3" form:"CustomField3"`
 	// **自訂名稱欄位4**   提供合作廠商使用記錄用客製化使用欄位
-	CustomField4 string `json:"CustomField4"`
+	CustomField4 string `json:"CustomField4" form:"CustomField4"`
 }
 
 // NewOrderResult instantiates a new OrderResult object

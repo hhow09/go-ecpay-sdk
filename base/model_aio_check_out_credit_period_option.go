@@ -16,14 +16,14 @@ import (
 // AioCheckOutCreditPeriodOption struct for AioCheckOutCreditPeriodOption
 type AioCheckOutCreditPeriodOption struct {
 	// **每次授權金額**   每次要授權(扣款)的金額。   注意事項：   綠界會依此次授權金額`PeriodAmount`所設定的金額做為之後固定授權的金額。   交易金額`TotalAmount`設定金額必須和授權金額`PeriodAmount`相同。   請帶整數，不可有小數點。僅限新台幣。
-	PeriodAmount int                  `json:"PeriodAmount"`
-	PeriodType   CreditPeriodTypeEnum `json:"PeriodType"`
+	PeriodAmount int                  `json:"PeriodAmount" form:"PeriodAmount"`
+	PeriodType   CreditPeriodTypeEnum `json:"PeriodType" form:"PeriodType"`
 	// **執行頻率**   此參數用來定義多久要執行一次   注意事項：   至少要大於等於 1 次以上。   當 `PeriodType` 設為 `D` 時，最多可設 `365` 次。    當 `PeriodType` 設為 `M` 時，最多可設 `12` 次。     當 `PeriodType` 設為 `Y` 時，最多可設 `1` 次。
-	Frequency int `json:"Frequency"`
+	Frequency int `json:"Frequency" form:"Frequency"`
 	// **執行次數**   總共要執行幾次。   注意事項：   至少要大於 1 次以上。   當 `PeriodType` 設為 `D` 時，最多可設 `999`次。   當 `PeriodType` 設為 `M` 時，最多可設 `99`次。   當 `PeriodType` 設為 `Y` 時，最多可設 `9` 次。    例 1：   當信用卡定期定額扣款為每個月扣 1 次500 元，總共要扣 12次   `TotalAmount`參數請帶 `500` `PeriodAmount`=`500`   `PeriodType`=`M`   `Frequency`=`1`   `ExecTimes`=`12`    例 2：   當信用卡定期定額扣款為 6000 元，每 6 個月扣 1 次，總共要扣 2 次時    交易金額`TotalAmount`參數請帶 `6000`   `PeriodType`=`M`   `Frequency`=`6`   `ExecTimes`=`2`
-	ExecTimes int `json:"ExecTimes"`
+	ExecTimes int `json:"ExecTimes" form:"ExecTimes"`
 	// **定期定額的執行結果回應URL**   若交易是信用卡定期定額的方式，則每次執行授權完，會將授權結果回傳到這個設定的 URL。   回覆內容請參考。
-	PeriodReturnURL *string `json:"PeriodReturnURL,omitempty"`
+	PeriodReturnURL *string `json:"PeriodReturnURL,omitempty" form:"PeriodReturnURL"`
 }
 
 // NewAioCheckOutCreditPeriodOption instantiates a new AioCheckOutCreditPeriodOption object

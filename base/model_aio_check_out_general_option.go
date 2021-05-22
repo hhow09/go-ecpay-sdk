@@ -16,52 +16,52 @@ import (
 // AioCheckOutGeneralOption struct for AioCheckOutGeneralOption
 type AioCheckOutGeneralOption struct {
 	// **特店編號(由綠界提供)**
-	MerchantID string `json:"MerchantID"`
+	MerchantID string `json:"MerchantID" form:"MerchantID"`
 	// **特店交易編號(由特店提供)**   特店交易編號均為唯一值，不可重複使用。   英數字大小寫混合   如何避免訂單編號重複請參考 FAQ   如有使用 `PlatformID` ，平台商底下所有商家之訂單編號亦不可重複。
-	MerchantTradeNo string `json:"MerchantTradeNo"`
+	MerchantTradeNo string `json:"MerchantTradeNo" form:"MerchantTradeNo"`
 	// **特店旗下店舖代號** 提供特店填入分店代號使用，僅可用英數字大小寫混合。
-	StoreID *string `json:"StoreID,omitempty"`
+	StoreID *string `json:"StoreID,omitempty" form:"StoreID"`
 	// **特店交易時間** 格式為 `yyyy/MM/dd HH:mm:ss`
-	MerchantTradeDate ECPayDateTime           `json:"MerchantTradeDate"`
-	PaymentType       AioCheckPaymentTypeEnum `json:"PaymentType"`
+	MerchantTradeDate ECPayDateTime           `json:"MerchantTradeDate" form:"MerchantTradeDate"`
+	PaymentType       AioCheckPaymentTypeEnum `json:"PaymentType" form:"PaymentType"`
 	// **交易金額**   請帶整數，不可有小數點。   僅限新台幣。   各付款金額的限制，請參考 <https://www.ecpay.com.tw/CascadeFAQ/CascadeFAQ_Qa?nID=3605>
-	TotalAmount int `json:"TotalAmount"`
+	TotalAmount int `json:"TotalAmount" form:"TotalAmount"`
 	// **交易描述** 傳送到綠界前，請將參數值先做 UrlEncode。
-	TradeDesc string `json:"TradeDesc"`
+	TradeDesc string `json:"TradeDesc" form:"TradeDesc"`
 	// **商品名稱**   1. 如果商品名稱有多筆，需在金流選擇頁一行一行顯示商品名稱的話，商品名稱請以符號#分隔。   2. 商品名稱字數限制為中英數 400 字內，超過此限制系統將自動截斷。
-	ItemName string `json:"ItemName"`
+	ItemName string `json:"ItemName" form:"ItemName"`
 	// **付款完成通知回傳網址**   當消費者付款完成後，綠界會將付款結果參數以幕後(Server POST)回傳到該網址。   詳細說明請參考付款結果通知   注意事項：    1. 請勿設定與 Client 端接收付款結果網址 OrderResultURL 相同位置，避免程式判斷錯誤。   2. 請在收到 Server 端付款結果通知後，請正確回應 1|OK 給綠界。
-	ReturnURL     string            `json:"ReturnURL"`
-	ChoosePayment ChoosePaymentEnum `json:"ChoosePayment"`
+	ReturnURL     string            `json:"ReturnURL" form:"ReturnURL"`
+	ChoosePayment ChoosePaymentEnum `json:"ChoosePayment" form:"ChoosePayment"`
 	// **檢查碼** 請參考附錄檢查碼機制與產生檢查碼範例程式
-	CheckMacValue string `json:"CheckMacValue"`
+	CheckMacValue string `json:"CheckMacValue" form:"CheckMacValue"`
 	// **Client端返回特店的按鈕連結**   消費者點選此按鈕後，會將頁面導回到此設定的網址   注意事項：   導回時不會帶付款結果到此網址，只是將頁面導回而已。   設定此參數，綠界會在付款完成或取號完成頁面上顯示[返回商店]的按鈕。   設定此參數，發生簡訊 OTP 驗證失敗時，頁面上會顯示[返回商店]的按鈕。   若未設定此參數，則綠界付款完成頁或取號完成頁面，不會顯示[返回商店]的按鈕。   若導回網址未使用 https 時，部份瀏覽器可能會出現警告訊息。
-	ClientBackURL *string `json:"ClientBackURL,omitempty"`
+	ClientBackURL *string `json:"ClientBackURL,omitempty" form:"ClientBackURL"`
 	// **商品銷售網址**
-	ItemURL *string `json:"ItemURL,omitempty"`
+	ItemURL *string `json:"ItemURL,omitempty" form:"ItemURL"`
 	// **備註欄位**
-	Remark           *string               `json:"Remark,omitempty"`
-	ChooseSubPayment *ChooseSubPaymentEnum `json:"ChooseSubPayment,omitempty"`
+	Remark           *string               `json:"Remark,omitempty" form:"Remark"`
+	ChooseSubPayment *ChooseSubPaymentEnum `json:"ChooseSubPayment,omitempty" form:"ChooseSubPayment"`
 	// **Client端回傳付款結果網址**     當消費者付款完成後，綠界會將付款結果參數以幕前(Client POST)回傳到該網址。   詳細說明請參考付款結果通知   注意事項：   1. 若與[ClientBackURL]同時設定，將會以此參數為主。   2. 銀聯卡及非即時交易(ATM、CVS、BARCODE)不支援此參數。
-	OrderResultURL    *string                `json:"OrderResultURL,omitempty"`
-	NeedExtraPaidInfo *NeedExtraPaidInfoEnum `json:"NeedExtraPaidInfo,omitempty"`
+	OrderResultURL    *string                `json:"OrderResultURL,omitempty" form:"OrderResultURL"`
+	NeedExtraPaidInfo *NeedExtraPaidInfoEnum `json:"NeedExtraPaidInfo,omitempty" form:"NeedExtraPaidInfo"`
 	// **裝置來源** 請帶空值，由系統自動判定。
-	DeviceSource *string `json:"DeviceSource,omitempty"`
+	DeviceSource *string `json:"DeviceSource,omitempty" form:"DeviceSource"`
 	// **隱藏付款**   當付款方式 `ChoosePayment` 為 `ALL` 時，可隱藏不需要的付款方式，多筆請以井號分隔(#)。   可用的參數值：   - `Credit`: 信用卡   - `WebATM`: 網路 ATM   - `ATM`: 自動櫃員機   - `CVS`: 超商代碼   - `BARCODE`: 超商條碼
-	IgnorePayment *string `json:"IgnorePayment,omitempty"`
+	IgnorePayment *string `json:"IgnorePayment,omitempty" form:"IgnorePayment"`
 	// **特約合作平台商代號(由綠界提供)**   為專案合作的平台商使用。   一般特店或平台商本身介接，則參數請帶放空值。   若為專案合作平台商的特店使用時，則參數請帶平台商所綁的特店編號 `MerchantID`。
-	PlatformID  *string          `json:"PlatformID,omitempty"`
-	InvoiceMark *InvoiceMarkEnum `json:"InvoiceMark,omitempty"`
+	PlatformID  *string          `json:"PlatformID,omitempty" form:"PlatformID"`
+	InvoiceMark *InvoiceMarkEnum `json:"InvoiceMark,omitempty" form:"InvoiceMark"`
 	// **自訂名稱欄位1**   提供合作廠商使用記錄用客製化使用欄位   注意事項：   特殊符號只支援 `,.#()$[];%{}:/?&@<>!`
-	CustomField1 *string `json:"CustomField1,omitempty"`
+	CustomField1 *string `json:"CustomField1,omitempty" form:"CustomField1"`
 	// **自訂名稱欄位2**   提供合作廠商使用記錄用客製化使用欄位   注意事項：   特殊符號只支援 `,.#()$[];%{}:/?&@<>!`
-	CustomField2 *string `json:"CustomField2,omitempty"`
+	CustomField2 *string `json:"CustomField2,omitempty" form:"CustomField2"`
 	// **自訂名稱欄位3**   提供合作廠商使用記錄用客製化使用欄位   注意事項：   特殊符號只支援 `,.#()$[];%{}:/?&@<>!`
-	CustomField3 *string `json:"CustomField3,omitempty"`
+	CustomField3 *string `json:"CustomField3,omitempty" form:"CustomField3"`
 	// **自訂名稱欄位4**   提供合作廠商使用記錄用客製化使用欄位   注意事項：   特殊符號只支援 `,.#()$[];%{}:/?&@<>!`
-	CustomField4 *string         `json:"CustomField4,omitempty"`
-	EncryptType  EncryptTypeEnum `json:"EncryptType"`
-	Language     *LanguageEnum   `json:"Language,omitempty"`
+	CustomField4 *string         `json:"CustomField4,omitempty" form:"CustomField4"`
+	EncryptType  EncryptTypeEnum `json:"EncryptType" form:"EncryptType"`
+	Language     *LanguageEnum   `json:"Language,omitempty" form:"Language"`
 }
 
 // NewAioCheckOutGeneralOption instantiates a new AioCheckOutGeneralOption object

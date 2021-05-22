@@ -15,9 +15,9 @@ import (
 
 // AioCheckOutCreditOption struct for AioCheckOutCreditOption
 type AioCheckOutCreditOption struct {
-	BindingCard *BindingCardEnum `json:"BindingCard,omitempty"`
+	BindingCard *BindingCardEnum `json:"BindingCard,omitempty" form:"BindingCard"`
 	// **記憶卡號識別碼** 記憶卡號識別碼 (特店代號 `MerchantID` + `廠商會員編號`)
-	MerchantMemberID *string `json:"MerchantMemberID,omitempty"`
+	MerchantMemberID *string `json:"MerchantMemberID,omitempty" form:"MerchantMemberID"`
 }
 
 // NewAioCheckOutCreditOption instantiates a new AioCheckOutCreditOption object
