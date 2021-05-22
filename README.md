@@ -21,6 +21,7 @@ ECPay SDK for Golang,with some helpers package.
   - QueryCreditCardPeriodInfo
   - QueryTradeInfo
 - Gin CheckMacValue Validator Handler
+- Echo CheckMacValue Validator Handler
 - Predefined Model
 - OpenAPI Definition
 
