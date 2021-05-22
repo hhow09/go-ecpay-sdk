@@ -112,6 +112,16 @@ info, resp, err := client.QueryCreditCardPeriodInfo("<MerchantTradeNo>", time.No
 info, resp, err := client.QueryTradeInfo("<MerchantTradeNo>", time.Now())
 ```
 
+## Echo Helper
+### Check Mac Validator Handler
+This handler can use to check the data CheckMacValue from the ECPAY server,and will return `0|Error` with 400 status if validating failed.
+
+```go
+server := echo.New()
+var ecpayClient = ecpay.NewStageClient(ecpay.WithReturnURL("<RETURN_URL>"))
+server.POST("/ecpay/return", func(c echo.Context) error { ... },ecpayEcho.ECPayCheckMacValueHandler(ecpayClient))
+```
+
 ## Gin Helper
 ### Check Mac Validator Handler
 This handler can use to check the data CheckMacValue from the ECPAY server,and will return `0|Error` with 400 status if validating failed.
