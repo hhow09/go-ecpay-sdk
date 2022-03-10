@@ -3,7 +3,7 @@ module github.com/Laysi/go-ecpay-sdk
 go 1.12
 
 require (
-	github.com/gin-gonic/gin v1.6.3
+	github.com/gin-gonic/gin v1.7.0
 	github.com/go-errors/errors v1.1.1
 	github.com/gorilla/schema v1.2.0
 	github.com/labstack/echo/v4 v4.3.0
