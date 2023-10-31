@@ -1,6 +1,6 @@
 package ecpay
 
-import "github.com/Laysi/go-ecpay-sdk/base"
+import ecpayBase "github.com/hhow09/go-ecpay-sdk/base"
 
 type AioCheckOutGeneralOptional struct {
 	// **特店旗下店舖代號** 提供特店填入分店代號使用，僅可用英數字大小寫混合。

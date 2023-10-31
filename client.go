@@ -7,13 +7,14 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
-	"github.com/Laysi/go-ecpay-sdk/base"
-	"github.com/gorilla/schema"
 	"html/template"
 	"net/url"
 	"reflect"
 	"strconv"
 	"strings"
+
+	"github.com/gorilla/schema"
+	ecpayBase "github.com/hhow09/go-ecpay-sdk/base"
 )
 
 const AioCheckOutPath = "/Cashier/AioCheckOut/V5"

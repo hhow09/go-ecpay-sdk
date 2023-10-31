@@ -2,10 +2,11 @@ package ecpayGin
 
 import (
 	"bytes"
-	"github.com/Laysi/go-ecpay-sdk"
-	"github.com/gin-gonic/gin"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"github.com/hhow09/go-ecpay-sdk"
 )
 
 func ECPayCheckMacValueHandler(client *ecpay.Client) gin.HandlerFunc {

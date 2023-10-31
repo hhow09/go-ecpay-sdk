@@ -1,13 +1,14 @@
 package ecpay_test
 
 import (
-	"github.com/Laysi/go-ecpay-sdk"
-	"github.com/Laysi/go-ecpay-sdk/base"
-	. "github.com/onsi/ginkgo"
-	. "github.com/onsi/gomega"
 	"strconv"
 	"time"
-	//"github.com/Laysi/go-ecpay-sdk"
+
+	"github.com/hhow09/go-ecpay-sdk"
+	ecpayBase "github.com/hhow09/go-ecpay-sdk/base"
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	//"github.com/hhow09/go-ecpay-sdk"
 )
 
 var _ = Describe("Client", func() {

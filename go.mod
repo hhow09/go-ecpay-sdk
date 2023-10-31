@@ -1,4 +1,4 @@
-module github.com/Laysi/go-ecpay-sdk
+module github.com/hhow09/go-ecpay-sdk
 
 go 1.12
 
